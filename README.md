@@ -1,8 +1,12 @@
 # Resource Cli
 
+Resource CLI is intended to be an easy way for developers to store information that they require easy access to, or even information that they would like to reference at a later point in time.
+
+*NB:* This tool is in very early stages of development.
+
 ## How to use
 
-```shell
+```code
 
 Usage:
   ResourceCli [command]
@@ -14,4 +18,3 @@ Available Commands:
   --delete-one <Id>                            Delete specified entry from database.
 
 ```
-  
