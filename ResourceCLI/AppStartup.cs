@@ -12,7 +12,6 @@ namespace ResourceCLI
     {
         private readonly ILogger<AppInstance> _log;
         private readonly IConfiguration       _config;
-        private readonly IKnowledgeRepo       _knowledgeRepo;
         private readonly List                 _listCmd;
         private readonly Create               _createCmd;
         private readonly Remove               _removeCmd;
@@ -21,15 +20,14 @@ namespace ResourceCLI
         public AppInstance(
             ILogger<AppInstance> log,
             IConfiguration config,
-            IKnowledgeRepo knowledgeRepo,
             List listCmd,
             Remove removeCmd,
             RemoveOne removeOne,
-            Create createCmd)
+            Create createCmd
+        )
         {
             _log = log;
             _config = config;
-            _knowledgeRepo = knowledgeRepo;
             _listCmd = listCmd;
             _createCmd = createCmd;
             _removeCmd = removeCmd;
@@ -58,6 +56,7 @@ namespace ResourceCLI
 
             if (args.Contains("--delete-one"))
             {
+                _log.Log(LogLevel.Information, "Attempting to delete a single entry");
                 _removeOne.RunCmd(args);
             }
         }
