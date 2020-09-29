@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using LiteDB;
+using ResourceCLI.Settings;
 
 namespace ResourceCLI
 {
@@ -7,14 +8,14 @@ namespace ResourceCLI
     {
         public void ClearAll()
         {
-            using var db = new LiteDatabase(@"/home/dan/Items.Db");
+            using var db = new LiteDatabase(AppSettings.ConnectionString);
             var col = db.GetCollection<Item>("items");
             col.DeleteAll();
         }
 
         public void DeleteOne(int id)
         {
-            using var db = new LiteDatabase(@"/home/dan/Items.Db");
+            using var db = new LiteDatabase(AppSettings.ConnectionString);
             var col = db.GetCollection<Item>("items");
             var toDelete = col.FindOne(x => x.Id == id);
             
@@ -24,7 +25,7 @@ namespace ResourceCLI
 
         List<Item> IKnowledgeRepo.GetAll()
         {
-            using var db = new LiteDatabase(@"/home/dan/Items.Db");
+            using var db = new LiteDatabase(AppSettings.ConnectionString);
             var col = db.GetCollection<Item>("items");
             var results = col.Query().ToList();
 
@@ -33,7 +34,7 @@ namespace ResourceCLI
 
         public void AddItem(Item newItem)
         {
-            using var db = new LiteDatabase(@"/home/dan/Items.Db");
+            using var db = new LiteDatabase(AppSettings.ConnectionString);
             var col = db.GetCollection<Item>("items");
 
             col.Insert(newItem);

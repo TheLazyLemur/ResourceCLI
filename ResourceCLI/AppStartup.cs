@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using ResourceCLI.Commands;
+using ResourceCLI.Settings;
 
 // DI, Serilog, Settings
 
@@ -36,6 +37,13 @@ namespace ResourceCLI
 
         public void Run(string[] args)
         {
+            if (args.Contains("--dbpath"))
+            {
+                var dir = Array.IndexOf(args, "--dbpath") + 1;
+                Console.WriteLine(args[dir]);
+                AppSettings.ConnectionString = args[dir];
+            }
+            
             if (args.Contains("--list"))
             {
                 _log.Log(LogLevel.Information, "Listing all entries");

@@ -13,8 +13,12 @@ Usage:
 
 Available Commands:
   --create -title <Title> -content <Content>   Add an entry to the database.
+  --create                                     Add an entry to the database (You will be prompted for information).
   --list                                       List all available entries in Database
   --delete-all                                 Delete all entries from Database.
   --delete-one <Id>                            Delete specified entry from database.
+
+Available Flags:
+  --dbpath <PathToDb>
 
 ```

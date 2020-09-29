@@ -15,14 +15,15 @@ namespace ResourceCLI.Commands
         {
             var allItems = _knowledgeRepo.GetAll();
             
-            foreach (var s in allItems)
+            foreach (var item in allItems)
             {
                 Console.WriteLine();
                 Console.WriteLine("_________________");
-                Console.WriteLine("Id : " + s.Id);
-                Console.WriteLine("Title : " + s.Title);
-                Console.WriteLine("Content : " + s.Content);
+                Console.WriteLine("Id : " + item.Id);
+                Console.WriteLine("Title : " + item.Title);
+                Console.WriteLine("Content : " + item.Content);
                 Console.WriteLine("_________________");
+                Console.WriteLine();
             }
         }
     }

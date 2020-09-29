@@ -28,7 +28,6 @@ namespace ResourceCLI.Commands
             {
                 Console.WriteLine("Please provide Title");
                 var title = Console.ReadLine();
-
                 newItem.Title = title;
             }
             else
